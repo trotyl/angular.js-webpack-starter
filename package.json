@@ -10,7 +10,11 @@
     "install:typings": "typings install",
     "postinstall": "npm run install:typings",
     "start": "webpack-dev-server --hot --inline",
-    "test": "karma start"
+    "test": "karma start karma.conf.js",
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +46,8 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
     "protractor": "^3.3.0",
     "ts-loader": "^0.8.2",
     "typescript": "^2.1.0-dev.20160712",
