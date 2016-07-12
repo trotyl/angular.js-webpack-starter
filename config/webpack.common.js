@@ -28,9 +28,10 @@ module.exports = {
         path: './dist'
     },
     plugins: [
-        new CopyPlugin([{
-            from: `./assets`, to: `./assets`
-        }]),
+        new CopyPlugin([
+            { from: `./assets`, to: `./assets` },
+            { from: `../node_modules/bootstrap/dist/css`, to: `./assets` }
+        ]),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['polyfill', 'vendor'].reverse()
         }),

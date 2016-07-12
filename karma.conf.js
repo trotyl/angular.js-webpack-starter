@@ -6,7 +6,7 @@ module.exports = function (config) {
         basePath: '.',
 
         files: [
-            'test/spec.ts'
+            'test/spec.js'
         ],
 
         preprocessors: {
