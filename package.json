@@ -25,5 +25,28 @@
   "bugs": {
     "url": "https://github.com/trotyl/angular.js-webpack-starter/issues"
   },
-  "homepage": "https://github.com/trotyl/angular.js-webpack-starter#readme"
+  "homepage": "https://github.com/trotyl/angular.js-webpack-starter#readme",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "bootstrap": "^3.3.6"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "extract-loader": "0.0.2",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.22.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "protractor": "^3.3.0",
+    "ts-loader": "^0.8.2",
+    "typescript": "^2.1.0-dev.20160712",
+    "webpack": "^2.1.0-beta.15",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
+  }
 }
