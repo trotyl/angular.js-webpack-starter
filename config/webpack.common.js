@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         main: './main.ts',
         polyfill: [],
-        vendor: []
+        vendor: ['angular']
     },
     devServer: {
         compress: true,
