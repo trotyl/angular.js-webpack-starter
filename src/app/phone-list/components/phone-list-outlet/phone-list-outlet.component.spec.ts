@@ -1,14 +1,14 @@
 import * as angular from 'angular'
 import { ICompileService, IRootScopeService, IHttpBackendService } from 'angular'
 import 'angular-mocks'
-import { PhoneListComponent, PhoneListComponentElement } from './phone-list.component'
+import { PhoneListOutletComponent, PhoneListOutletComponentElement } from './phone-list-outlet.component'
 
-describe('PhoneListComponent', () => {
+describe('PhoneDetailOutletComponent', () => {
     let $compile: ICompileService
     let $rootScope: IRootScopeService
     let $httpBackend: IHttpBackendService
     let element: JQuery
-    let ctrl: PhoneListComponent
+    let ctrl: PhoneListOutletComponent
 
     beforeEach(angular.mock.module('phonecatApp'));
     
@@ -25,11 +25,11 @@ describe('PhoneListComponent', () => {
             .respond([{name: 'Nexus S'}, {name: 'Motorola DROID'}])
         
         element = $compile('<phone-list></phone-list>')($rootScope.$new())
-        ctrl = element.controller(PhoneListComponentElement) as PhoneListComponent
+        ctrl = element.controller(PhoneListOutletComponentElement) as PhoneListOutletComponent
     }))
     
     it('should have proper controller type', () => {
-        expect(ctrl instanceof PhoneListComponent).toBeTruthy()
+        expect(ctrl instanceof PhoneListOutletComponent).toBeTruthy()
     })
 
     it('should create a `phones` property with 2 phones fetched with `$http`', () => {

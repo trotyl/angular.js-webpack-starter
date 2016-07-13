@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-10">
             <ul class="phones">
-                <li ng-repeat="phone in phoneList.phones  | filter:phoneList.query | orderBy:phoneList.orderProp track by $index" class="thumbnail">
+                <li ng-repeat="phone in phoneList.phones | filter:phoneList.query | orderBy:phoneList.orderProp track by $index" class="thumbnail">
                     <a href="#/phones/{{phone.id}}" class="thumb">
                         <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
                     </a>

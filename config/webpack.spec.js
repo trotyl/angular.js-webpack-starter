@@ -1,7 +1,8 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin')
 
 module.exports = {
     context: resolve(__dirname, '../src'),
@@ -36,14 +37,17 @@ module.exports = {
         path: './dist'
     },
     plugins: [
-        new ExtractTextPlugin("main.css"),
+        new ExtractTextPlugin('main.css'),
         new CopyPlugin([
             { from: `./assets`, to: `./assets` },
             { from: `../node_modules/bootstrap/dist/css`, to: `./assets` }
         ]),
         new webpack.EnvironmentPlugin([
             'NODE_ENV'
-        ])
+        ]),
+        new ngAnnotatePlugin({
+            add: true
+        })
     ],
     resolve: {
         alias: {},

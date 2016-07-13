@@ -32,6 +32,7 @@
   "homepage": "https://github.com/trotyl/angular.js-webpack-starter#readme",
   "dependencies": {
     "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
     "bootstrap": "^3.3.6"
   },
   "devDependencies": {
