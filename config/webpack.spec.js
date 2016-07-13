@@ -41,10 +41,6 @@ module.exports = {
             { from: `./assets`, to: `./assets` },
             { from: `../node_modules/bootstrap/dist/css`, to: `./assets` }
         ]),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['polyfill', 'vendor'].reverse()
-        }),
-        new webpack.optimize.OccurrenceOrderPlugin(true),
         new webpack.EnvironmentPlugin([
             'NODE_ENV'
         ])

@@ -10,28 +10,10 @@ module.exports = function (config) {
         ],
 
         preprocessors: {
-            'config/webpack.spec.js': ['webpack', 'sourcemap']
+            'test/spec.js': ['webpack', 'sourcemap']
         },
 
-        webpack: {
-            devtool: 'source-map',
-            context: path.resolve(__dirname, './src'),
-            module: {
-                loaders: [
-                    {test: /\.ts$/, loader: `ts`},
-                    {test: /\.component.html$/, loader: `file!extract!html`},
-                    {test: /\.component.css$/, loader: `file!extract!css`}
-                ]
-            },
-            output: {
-                chunkFilename: '[id].bundle.js',
-                filename: '[name].bundle.js',
-                path: './dist'
-            },
-            resolve: {
-                extensions: ['', '.ts', '.js']
-            }
-        },
+        webpack: require('./config/webpack.spec'),
         
         webpackMiddleware: {
             noInfo: false
