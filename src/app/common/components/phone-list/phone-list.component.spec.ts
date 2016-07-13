@@ -30,4 +30,7 @@ describe('PhoneListComponent', () => {
         expect(ctrl.phones.length).toBe(3)
     })
 
+    it('should set a default value for the `orderProp` model', () => {
+        expect(ctrl.orderProp).toBe('age');
+    })
 })
