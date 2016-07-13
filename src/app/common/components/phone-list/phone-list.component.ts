@@ -1,3 +1,5 @@
+import { IHttpService } from 'angular'
+
 import { IComponentOptions } from '../../../core/facade'
 import { Phone } from '../../phone.model'
 
@@ -5,12 +7,12 @@ export class PhoneListComponent {
     phones: Phone[]
     orderProp = 'age'
 
+    constructor (private $http: IHttpService) { 'ngInject' }
+
     $onInit () {
-        this.phones = [
-            { name: 'Nexus S', snippet: 'Fast just got faster with Nexus S.', age: 1 },
-            { name: 'Motorola XOOM™ with Wi-Fi', snippet: 'The Next, Next Generation tablet.', age: 2 },
-            { name: 'MOTOROLA XOOM™', snippet: 'The Next, Next Generation tablet.', age: 3 }
-        ]
+        this.$http.get('phones/phones.json').then(response => {
+            this.phones = response.data as Phone[];
+        })
     }
 }
 

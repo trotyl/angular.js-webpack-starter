@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-10">
             <ul>
-                <li ng-repeat="phone in phoneList.phones  | filter:phoneList.query | orderBy:phoneList.orderProp">
+                <li ng-repeat="phone in phoneList.phones  | filter:phoneList.query | orderBy:phoneList.orderProp track by $index">
                     <span>{{phone.name}}</span>
                     <p>{{phone.snippet}}</p>
                 </li>

@@ -1,7 +1,8 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin')
 
 module.exports = {
     context: resolve(__dirname, '../src'),
@@ -38,8 +39,8 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("main.css"),
         new CopyPlugin([
-            { from: `./assets`, to: `./assets` },
-            { from: `../node_modules/bootstrap/dist/css`, to: `./assets` }
+            { from: `./assets` },
+            { from: `../node_modules/bootstrap/dist/css` }
         ]),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['polyfill', 'vendor'].reverse()
@@ -47,7 +48,10 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(true),
         new webpack.EnvironmentPlugin([
             'NODE_ENV'
-        ])
+        ]),
+        new ngAnnotatePlugin({
+            add: true
+        })
     ],
     resolve: {
         alias: {},
