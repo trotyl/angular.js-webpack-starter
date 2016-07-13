@@ -9,7 +9,7 @@ export class PhoneListOutletComponent {
 
     constructor (private $http: IHttpService) { 'ngInject' }
 
-    $onInit () {
+    $onInit (): void {
         this.$http.get('phones/phones.json').then(response => {
             this.phones = response.data as IListPhone[];
         })

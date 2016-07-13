@@ -12,7 +12,7 @@ export class PhoneDetailOutletComponent {
         private $stateParams: IStateParamsService
     ) { 'ngInject' }
 
-    $onInit () {
+    $onInit (): void {
         this.$http.get(`phones/${this.$stateParams['phoneId']}.json`).then(response => {
             this.phone = response.data as IDetailPhone;
         })

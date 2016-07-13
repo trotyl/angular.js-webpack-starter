@@ -18,8 +18,8 @@ export interface IDetailPhone {
         cell: string
         wifi: string
         bluetooth: string
-        infrared: string
-        gps: string
+        infrared: boolean
+        gps: boolean
     }
     android: {
         os: string
@@ -32,14 +32,14 @@ export interface IDetailPhone {
     display: {
         screenSize: string
         screenResolution: string
-        touchScreen: string
+        touchScreen: boolean
     }
     hardware: {
         cpu: string
         usb: string
         audioJack: string
-        fmRadio: string
-        accelerometer: string
+        fmRadio: boolean
+        accelerometer: boolean
     }
     camera: {
         primary: string
