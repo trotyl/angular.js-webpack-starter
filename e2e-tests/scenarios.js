@@ -47,4 +47,12 @@ describe('My app', () => {
             'Motorola XOOM\u2122 with Wi-Fi'
         ])
     })
+
+    it('should render phone specific links', () => {
+        var query = element(by.model('phoneList.query'))
+        query.sendKeys('nexus')
+
+        element.all(by.css('.phones li a')).first().click()
+        expect(browser.getLocationAbsUrl()).toBe('/phones/nexus-s')
+    })
 })
