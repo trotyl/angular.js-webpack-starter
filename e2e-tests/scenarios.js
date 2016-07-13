@@ -10,7 +10,7 @@ describe('My app', () => {
         expect(browser.getLocationAbsUrl()).toBe('/phones')
     })
 
-    describe('View: Phone list', function () {
+    describe('View: IDetailPhone list', function () {
         it('should filter the phone list as a user types into the search box', () => {
             const phoneList = element.all(by.repeater('phone in phoneList.phones'))
             const query = element(by.model('phoneList.query'))
@@ -59,14 +59,14 @@ describe('My app', () => {
         })
     })
 
-    describe('View: Phone detail', () => {
+    describe('View: IDetailPhone detail', () => {
 
         beforeEach(() => {
             browser.get('index.html#/phones/nexus-s')
         })
 
-        it('should display placeholder page with `phoneId`', () => {
-            expect(element(by.binding('phoneDetail.phoneId')).getText()).toBe('nexus-s')
-        })
+        it('should display the `nexus-s` page', function() {
+            expect(element(by.binding('phoneDetail.phone.name')).getText()).toBe('Nexus S');
+        });
     })
 })

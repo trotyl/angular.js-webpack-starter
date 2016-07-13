@@ -1,4 +1,4 @@
-export class Phone {
+export interface IListPhone {
     id: string
     name: string
     snippet: string

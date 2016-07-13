@@ -1,14 +1,21 @@
+import { IHttpService } from 'angular'
 import { IStateParamsService } from 'angular-ui-router'
 
 import { IComponentOptions } from '../../../core/facade'
+import { IDetailPhone } from '../../../common/detail-phone.model'
 
 export class PhoneDetailOutletComponent {
-    phoneId: string
+    phone: IDetailPhone
 
-    constructor (private $stateParams: IStateParamsService) { 'ngInject' }
+    constructor (
+        private $http: IHttpService,
+        private $stateParams: IStateParamsService
+    ) { 'ngInject' }
 
     $onInit () {
-        this.phoneId = this.$stateParams['phoneId']
+        this.$http.get(`phones/${this.$stateParams['phoneId']}.json`).then(response => {
+            this.phone = response.data as IDetailPhone;
+        })
     }
 }
 

@@ -1,17 +1,17 @@
 import { IHttpService } from 'angular'
 
 import { IComponentOptions } from '../../../core/facade'
-import { Phone } from '../../../common/phone.model'
+import { IListPhone } from '../../../common/list-phone.model'
 
 export class PhoneListOutletComponent {
-    phones: Phone[]
+    phones: IListPhone[]
     orderProp = 'age'
 
     constructor (private $http: IHttpService) { 'ngInject' }
 
     $onInit () {
         this.$http.get('phones/phones.json').then(response => {
-            this.phones = response.data as Phone[];
+            this.phones = response.data as IListPhone[];
         })
     }
 }
