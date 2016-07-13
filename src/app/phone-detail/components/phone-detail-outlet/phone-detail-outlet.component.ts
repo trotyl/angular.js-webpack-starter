@@ -6,6 +6,7 @@ import { IDetailPhone } from '../../../common/detail-phone.model'
 
 export class PhoneDetailOutletComponent {
     phone: IDetailPhone
+    mainImageUrl: string
 
     constructor (
         private $http: IHttpService,
@@ -14,8 +15,13 @@ export class PhoneDetailOutletComponent {
 
     $onInit (): void {
         this.$http.get(`phones/${this.$stateParams['phoneId']}.json`).then(response => {
-            this.phone = response.data as IDetailPhone;
+            this.phone = response.data as IDetailPhone
+            this.setImage(this.phone.images[0])
         })
+    }
+
+    setImage (imageUrl: string) {
+        this.mainImageUrl = imageUrl;
     }
 }
 

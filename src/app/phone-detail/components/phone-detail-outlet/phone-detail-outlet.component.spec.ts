@@ -11,6 +11,11 @@ describe('PhoneDetailOutletComponent', () => {
     let element: JQuery
     let ctrl: PhoneDetailOutletComponent
 
+    const xyzPhoneData = {
+        name: 'phone xyz',
+        images: ['image/url1.png', 'image/url2.png']
+    }
+
     beforeEach(angular.mock.module('phonecatApp'));
     
     beforeEach(inject((
@@ -25,7 +30,7 @@ describe('PhoneDetailOutletComponent', () => {
 
         _$stateParams_['phoneId'] = 'xyz'
 
-        $httpBackend.expectGET('phones/xyz.json').respond({name: 'phone xyz'});
+        $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData);
         
         element = $compile('<phone-detail></phone-detail>')($rootScope.$new())
         ctrl = element.controller(PhoneDetailOutletComponentElement) as PhoneDetailOutletComponent
@@ -39,6 +44,6 @@ describe('PhoneDetailOutletComponent', () => {
         expect(ctrl.phone).toBeUndefined()
 
         $httpBackend.flush()
-        expect(ctrl.phone).toEqual({name: 'phone xyz'})
+        expect(ctrl.phone).toEqual(xyzPhoneData)
     })
 })
